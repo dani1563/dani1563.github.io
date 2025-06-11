@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de Graduación | MVZ Jorge Yair Pasten Lopez</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000;
+            color: #d4af37;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Patrón de siluetas de animales */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.05"><path fill="gray" d="M50,5 C70,5 85,20 85,40 C85,60 70,75 50,75 C30,75 15,60 15,40 C15,20 30,5 50,5 Z M35,25 L35,55 L45,55 L45,35 L55,35 L55,55 L65,55 L65,25 L35,25 Z M25,60 L25,70 L75,70 L75,60 L25,60 Z"/></svg>');
+            background-size: 300px;
+            z-index: -1;
+        }
+        
+        .invitacion {
+            background: linear-gradient(to bottom right, #0a0a0a 0%, #000 100%);
+            width: 100%;
+            max-width: 900px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.2);
+            position: relative;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .header {
+            padding: 60px 40px 40px;
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .titulo {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: #d4af37;
+        }
+        
+        .subtitulo {
+            font-size: 1.3rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: #fff;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .mensaje {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #fff;
+            font-weight: 300;
+        }
+        
+        .agradecimiento {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: #d4af37;
+            margin: 40px 0;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+        
+        .detalles-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .detalle {
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 30px;
+            border-radius: 10px;
+            width: 240px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .detalle:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15);
+        }
+        
+        .detalle i {
+            font-size: 2.8rem;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+        
+        .detalle-titulo {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #d4af37;
+        }
+        
+        .detalle-info {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        .ubicacion-link {
+            color: #d4af37;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.5);
+            transition: border-color 0.3s;
+        }
+        
+        .ubicacion-link:hover {
+            color: #fff;
+            border-bottom: 1px solid #d4af37;
+        }
+        
+        .espera {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin: 60px 0 40px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        
+        .firma {
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .nombre {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .titulo-profesional {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: #fff;
+            font-style: italic;
+            opacity: 0.9;
+        }
+        
+        .animal-silhouettes {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            padding: 0 20px 10px;
+            opacity: 0.1;
+        }
+        
+        .animal-silhouettes div {
+            width: 60px;
+            height: 60px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gray"><path d="M19.5,12C19.5,12 21,14 21,16C21,17.5 19.5,19.5 19.5,19.5C17.5,21.5 14,21.5 12,19.5C10,21.5 6.5,21.5 4.5,19.5C4.5,19.5 3,17.5 3,16C3,14 4.5,12 4.5,12C4.5,12 3,10.5 3,9C3,7.5 4.5,6 6,6C7.5,6 9,7.5 9,9C9,7.5 10.5,6 12,6C13.5,6 15,7.5 15,9C15,7.5 16.5,6 18,6C19.5,6 21,7.5 21,9C21,10.5 19.5,12 19.5,12Z"/></svg>') no-repeat center center;
+            background-size: contain;
+        }
+        
+        .corner-decoration {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+        }
+        
+        .top-left {
+            top: 20px;
+            left: 20px;
+            border-top: 2px solid #d4af37;
+            border-left: 2px solid #d4af37;
+        }
+        
+        .top-right {
+            top: 20px;
+            right: 20px;
+            border-top: 2px solid #d4af37;
+            border-right: 2px solid #d4af37;
+        }
+        
+        .bottom-left {
+            bottom: 20px;
+            left: 20px;
+            border-bottom: 2px solid #d4af37;
+            border-left: 2px solid #d4af37;
+        }
+        
+        .bottom-right {
+            bottom: 20px;
+            right: 20px;
+            border-bottom: 2px solid #d4af37;
+            border-right: 2px solid #d4af37;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 20px 30px;
+            }
+            
+            .titulo {
+                font-size: 2.5rem;
+            }
+            
+            .subtitulo {
+                font-size: 1.1rem;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .mensaje {
+                font-size: 1.2rem;
+            }
+            
+            .agradecimiento {
+                font-size: 3rem;
+            }
+            
+            .detalle {
+                width: 100%;
+                max-width: 300px;
+                padding: 25px;
+            }
+            
+            .espera {
+                font-size: 2rem;
+            }
+            
+            .nombre {
+                font-size: 2rem;
+            }
+            
+            .titulo-profesional {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .titulo {
+                font-size: 2rem;
+            }
+            
+            .agradecimiento {
+                font-size: 2.5rem;
+            }
+            
+            .detalle {
+                padding: 20px;
+            }
+            
+            .detalle i {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="invitacion">
+        <!-- Decoración de esquinas -->
+        <div class="corner-decoration top-left"></div>
+        <div class="corner-decoration top-right"></div>
+        <div class="corner-decoration bottom-left"></div>
+        <div class="corner-decoration bottom-right"></div>
+        
+        <div class="header">
+            <h1 class="titulo">Invitación de Graduación</h1>
+            <p class="subtitulo">Con gran orgullo celebro la culminación de mis estudios y te invito a compartir este momento</p>
+        </div>
+        
+        <div class="content">
+            <p class="mensaje">
+                Hoy culmino una etapa importante de mi vida y deseo celebrar contigo este logro. 
+                Tu apoyo ha sido fundamental en este camino, y sería un honor contar con tu presencia 
+                en este momento tan especial.
+            </p>
+            
+            <div class="agradecimiento">Gracias</div>
+            
+            <div class="detalles-container">
+                <div class="detalle">
+                    <i class="far fa-calendar-alt"></i>
+                    <div class="detalle-titulo">Día</div>
+                    <div class="detalle-info">30 de Junio 2025</div>
+                </div>
+                
+                <div class="detalle">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="detalle-titulo">Lugar</div>
+                    <div class="detalle-info">
+                        <a href="https://goo.gl/maps/example" target="_blank" class="ubicacion-link">
+                            Av. Santa Ana 750<br>
+                            San Francisco CUIHUACAN<br>
+                            C.P. 04480, COYOACÁN, CDMX<br>
+                            Club Deportivo Censodep
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="detalle">
+                    <i class="far fa-clock"></i>
+                    <div class="detalle-titulo">Hora</div>
+                    <div class="detalle-info">7:00 P.M.</div>
+                </div>
+            </div>
+            
+            <div class="espera">¡Te esperamos!</div>
+            
+            <div class="firma">
+                <div class="nombre">Jorge Yair Pasten Lopez</div>
+                <div class="titulo-profesional">Médico Veterinario Zootecnista</div>
+            </div>
+            
+            <!-- Siluetas de animales decorativas -->
+            <div class="animal-silhouettes">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Actualizar dinámicamente el año si es necesario
+        const currentYear = new Date().getFullYear();
+        const yearElement = document.querySelector('.detalle-info');
+        if (yearElement && yearElement.textContent.includes('2025') && currentYear > 2025) {
+            yearElement.textContent = yearElement.textContent.replace('2025', currentYear);
+        }
+        
+        // Efecto sutil al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            const elementos = document.querySelectorAll('.titulo, .subtitulo, .detalle');
+            elementos.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 200 * index);
+            });
+        });
+    </script>
+</body>
+</html>

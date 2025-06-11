@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Roboto', sans-serif;
+    color: #4a4a4a;
+}
+
+.invitacion-container {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+}
+
+.flores-decorativas {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: url('https://cdn.pixabay.com/photo/2018/03/31/06/31/flowers-3277465_1280.png') no-repeat;
+    background-size: contain;
+    opacity: 0.2;
+    transform: rotate(15deg);
+    z-index: 0;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: #e91e63;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.detalles-invitacion {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.fecha {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2196f3;
+    margin: 20px 0;
+}
+
+.lugar {
+    font-style: italic;
+    color: #ff9800;
+}
+
+#btn-confirmar {
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+#btn-confirmar:hover {
+    background: #388e3c;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+#mensaje-confirmacion {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #4caf50;
+    height: 24px;
+}
+
+/* Diseño responsivo */
+@media (max-width: 600px) {
+    .invitacion-container {
+        padding: 30px 20px;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .detalles-invitacion {
+        font-size: 1rem;
+    }
+}
